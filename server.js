@@ -13,9 +13,9 @@ const db = knex({
   client: 'pg',
   connection: {
     host: '127.0.0.1',
-    user: 'benjaminpm',
-    password: '123456',
-    database: 'face-detect-portfolio-local'
+    user: '',
+    password: '',
+    database: 'face-detect-portfolio-local2'
   }
 });
 
