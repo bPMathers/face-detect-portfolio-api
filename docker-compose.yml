@@ -1,0 +1,26 @@
+version: '3.7'
+
+services: 
+  face-detect-portfolio-api: 
+    container_name: backend
+    build: ./
+    command: npm start
+    working_dir: /usr/src/face-detect-portfolio-api
+    environment: 
+      POSTGRES_URI: postgres://bpmbpm:secret@postgres:5432/face-detect-portfolio-docker
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/face-detect-portfolio-api
+
+  #postgres
+  postgres:
+    container_name: postgres 
+    environment: 
+      POSTGRES_USER: bpmbpm
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: face-detect-portfolio-docker
+      POSTGRES_HOST: postgres
+    build: ./postgres
+    ports: 
+      - "5432:5432"
